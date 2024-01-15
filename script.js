@@ -19,43 +19,61 @@ const poids = {
 //document.getElementById("poireBTN").addEventListener("click", AddPoire);
 
 
-// Ajouter une pomme au panier, puis update les couts
-function AddPomme(){
+// Ajouter un item au panier, puis update les couts
+function AddItem(nomItem){
 
-    panier.pommes++;
+    //variables temporaires
+    let notrePrix = 0;
+    let notrePoid = 0;
+    let notreQuantite = 0;
 
-    document.querySelector("#qtePommes").textContent = panier.pommes;
-    document.querySelector("#prixPommes").textContent = (panier.pommes * prix.pommes);
+    switch (nomItem) {
+        case 'Pommes':
+
+            panier.pommes++;
+            notrePrix = prix.pommes;
+            notrePoid = poids.pommes;
+            notreQuantite = panier.pommes;
+
+            break;
+        case 'Poires':
+
+            panier.poires++;
+            notrePrix = prix.poires;
+            notrePoid = poids.poires;
+            notreQuantite = panier.poires;
+
+            break;
+        case 'Prunes':
+
+            panier.prunes++;
+            notrePrix = prix.prunes;
+            notrePoid = poids.prunes;
+            notreQuantite = panier.prunes;
+
+            break;
+    }
+
+    const newPrix = (notreQuantite * notrePrix);
+    const newPoid = (notreQuantite * notrePoid);
+
+
+    //UPDATE LE POIDS
+    document.querySelector("#poids"+ nomItem).textContent = newPoid;
+
+    //UPDATE LA QUANTITEE
+    document.querySelector("#qte" + nomItem).textContent = notreQuantite;
+
+    //UPDATE LE PRIX
+    document.querySelector("#prix" + nomItem).textContent = (notreQuantite * newPrix);
+
+
+
+    // Ensuite nous ajustons les totaux
     document.querySelector("#qteTotal").textContent = (panier.pommes + panier.poires + panier.prunes);
+
     document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes));
-    document.querySelector("#poidsPommes").textContent = (poids.pommes += parseInt(document.querySelector("#poidsPommes").textContent));
-    document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseInt(document.querySelector("#poidsPoires").textContent) + parseInt(document.querySelector("#poidsPrunes").textContent));
+
+    document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent));
 }
 
-
-// Ajouter une prune au panier, puis update les couts
-function AddPoire(){
-
-    panier.poires++;
-
-    document.querySelector("#qtePoires").textContent = panier.poires;
-    document.querySelector("#prixPoires").textContent = (panier.poires * prix.poires);
-    document.querySelector("#qteTotal").textContent = (panier.pommes + panier.poires + panier.prunes);
-    document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes));
-    document.querySelector("#poidsPoires").textContent = (poids.poires += parseInt(document.querySelector("#poidsPoires").textContent));
-    document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseInt(document.querySelector("#poidsPoires").textContent) + parseInt(document.querySelector("#poidsPrunes").textContent));
-}
-
-
-// Ajouter une prune au panier, puis update les couts
-function AddPrune(){
-
-    panier.prunes++;
-
-    document.querySelector("#qtePrunes").textContent = panier.prunes;
-    document.querySelector("#prixPrunes").textContent = (panier.prunes * prix.prunes);
-    document.querySelector("#qteTotal").textContent = (panier.pommes + panier.poires + panier.prunes);
-    document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes));
-    document.querySelector("#poidsPrunes").textContent = (poids.prunes += parseInt(document.querySelector("#poidsPrunes").textContent));
-    document.querySelector("#poidsTotal").textContent = (parseFloat(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent));
-}
