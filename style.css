@@ -76,3 +76,7 @@ table.bandes tbody tr:nth-child(even), tfoot {
     content: " lbs";
 }
 
+button:hover{
+    cursor: pointer;
+}
+
