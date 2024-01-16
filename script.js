@@ -14,11 +14,6 @@ const poids = {
     prunes : 3.75
 }
 
-//document.getElementById("pommeBTN").addEventListener("click", AddPomme);
-//document.getElementById("pruneBTN").addEventListener("click", AddPrune);
-//document.getElementById("poireBTN").addEventListener("click", AddPoire);
-
-
 // Ajouter un item au panier, puis update les couts
 /**
  *
@@ -82,4 +77,23 @@ function addItem(nomItem){
     //POIDS
     document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent)).toFixed(2);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//document.getElementById("pommeBTN").addEventListener("click", AddPomme);
+//document.getElementById("pruneBTN").addEventListener("click", AddPrune);
+//document.getElementById("poireBTN").addEventListener("click", AddPoire);
 
