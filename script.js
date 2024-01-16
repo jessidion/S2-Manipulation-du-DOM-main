@@ -10,8 +10,8 @@ const prix = {
 }
 const poids = {
     pommes : 3.5,
-    poires : 3.7,
-    prunes : 3.3
+    poires : 3.25,
+    prunes : 3.75
 }
 
 //document.getElementById("pommeBTN").addEventListener("click", AddPomme);
@@ -20,7 +20,7 @@ const poids = {
 
 
 // Ajouter un item au panier, puis update les couts
-function AddItem(nomItem){
+function addItem(nomItem){
 
     //variables temporaires
     let notrePrix = 0;
@@ -54,26 +54,23 @@ function AddItem(nomItem){
             break;
     }
 
-    const newPrix = (notreQuantite * notrePrix);
-    const newPoid = (notreQuantite * notrePoid);
-
 
     //UPDATE LE POIDS
-    document.querySelector("#poids"+ nomItem).textContent = newPoid;
+    document.querySelector("#poids"+ nomItem).textContent = (notreQuantite * notrePoid).toFixed(2);
 
     //UPDATE LA QUANTITEE
     document.querySelector("#qte" + nomItem).textContent = notreQuantite;
 
     //UPDATE LE PRIX
-    document.querySelector("#prix" + nomItem).textContent = (notreQuantite * newPrix);
+    document.querySelector("#prix" + nomItem).textContent = (notreQuantite * notrePrix).toFixed(2);
 
 
 
     // Ensuite nous ajustons les totaux
     document.querySelector("#qteTotal").textContent = (panier.pommes + panier.poires + panier.prunes);
 
-    document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes));
+    document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes)).toFixed(2);
 
-    document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent));
+    document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent)).toFixed(2);
 }
 
