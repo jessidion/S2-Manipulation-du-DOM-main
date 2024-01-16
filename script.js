@@ -20,6 +20,10 @@ const poids = {
 
 
 // Ajouter un item au panier, puis update les couts
+/**
+ *
+ * @param nomItem = le nom du fruit tel qu'indique sur ses ID
+ */
 function addItem(nomItem){
 
     //variables temporaires
