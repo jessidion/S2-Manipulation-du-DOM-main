@@ -14,8 +14,7 @@ const poids = {
     prunes : 3.75
 }
 
-// Ajouter un item au panier, puis update les couts
-/**
+/** Ajouter un item au panier, puis update les couts
  *
  * @param nomItem = le nom du fruit tel qu'indique sur ses ID
  */
