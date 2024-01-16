@@ -54,6 +54,7 @@ function addItem(nomItem){
             break;
     }
 
+// Nous ajustons la facture....
 
     //UPDATE LE POIDS
     document.querySelector("#poids"+ nomItem).textContent = (notreQuantite * notrePoid).toFixed(2);
@@ -66,11 +67,15 @@ function addItem(nomItem){
 
 
 
-    // Ensuite nous ajustons les totaux
+// Ensuite nous ajustons les totaux....
+
+    // QUANTITEE
     document.querySelector("#qteTotal").textContent = (panier.pommes + panier.poires + panier.prunes);
 
+    //PRIX
     document.querySelector("#prixTotal").textContent = ((panier.pommes * prix.pommes) + (panier.poires * prix.poires) + (panier.prunes * prix.prunes)).toFixed(2);
 
+    //POIDS
     document.querySelector("#poidsTotal").textContent = (parseInt(document.querySelector("#poidsPommes").textContent) + parseFloat(document.querySelector("#poidsPoires").textContent) + parseFloat(document.querySelector("#poidsPrunes").textContent)).toFixed(2);
 }
 
